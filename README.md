@@ -1,5 +1,5 @@
 # Librows
-Before you run the server, you need to install de dependencies in the package.json with the comand:
+Before you run the server, you need to install the dependencies in the package.json with the comand (the comand needs to be executed in the same level as the package.json):
 
 ```
 npm install
