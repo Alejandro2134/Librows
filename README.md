@@ -1,5 +1,5 @@
 # Librows
-First, you need to hace nodejs installed
+First, you need to have nodejs installed
 
 Before you run the server, you need to install the dependencies in the package.json with the comand: ``` npm install``` (the comand needs to be executed in the same level as the package.json)
 
