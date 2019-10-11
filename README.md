@@ -1,4 +1,9 @@
 # Librows
+
+Librows is a web apllication, where you can share the books that you read and give them a review.
+
+# Use 
+
 First, you need to have nodejs installed
 
 https://nodejs.org/es/
