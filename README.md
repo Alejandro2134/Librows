@@ -1,6 +1,6 @@
 # Librows
 
-Librows is a web apllication, where you can share the books that you read, find new books and give them a review.
+Librows is a web apllication where you can share the books that you read, find new books and give them a review.
 
 The application was created to the people that wanna start to read, and people that already read.
 
