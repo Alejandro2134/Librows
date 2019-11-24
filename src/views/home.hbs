@@ -49,7 +49,7 @@
             
         <div class="col">
             <label class="text-center">¿Aún no te has registrado? Hazlo Aquí:</label>
-            <form class="border rounded-0" style="width: 350px;">
+            <form action="/home" class="border rounded-0" style="width: 350px;" method="POST">
                 <label style="margin: 0px 5px 0px;">Nombre:</label>
                 <input class="form-control" type="text" style="width: 320px;margin: 10px;" name="textNombre" placeholder="Escribe tu nombre(s) aqui..."><label style="margin: 0px 5px 0px;">Apellido:</label>
                 <input class="form-control" type="text" style="width: 320px;margin: 10px;" name="textApellido" placeholder="Escribe tu apellido(s) aqui..."><label style="margin: 0px 5px 0px;">Cédula:</label>
@@ -60,11 +60,11 @@
             <br>
 
             <label class="text-center">Inicia Sesión</label>
-            <form class="border rounded-0" style="width: 350px;">
+            <form action="/home" class="border rounded-0" style="width: 350px;" method="POST">
                 <label style="margin: 0px 5px 0px;">Nombre de usuario:</label>
                 <input class="form-control" type="text" style="width: 320px;margin: 10px;" name="textNombre" placeholder="Escribe tu nombre de usuario aqui...">
                 <label style="margin: 0px 5px 0px;">Contraseña:</label>
-                <input class="form-control" type="password" style="width: 320px;margin: 10px;" name="textCorreo">
+                <input class="form-control" type="password" style="width: 320px;margin: 10px;" name="textContraseña">
                 <button class="btn btn-primary" id="butRegistrar" style="width: 320px;margin: 10px;height: 35px;padding: 0px 0px;" type="button">Registrar</button>
             </form>
         </div>
