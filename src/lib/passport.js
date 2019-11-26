@@ -23,10 +23,23 @@ passport.use('local.auth', new LocalStrategy({
     }
 
     if(num == 2){
-        console.log(req.body);
+        
+        const rows = await pool.query('SELECT * FROM usuario WHERE nombreUsuario = ?' [username]);
+
+        if(rows.length > 0){
+            const user = rows[0];
+            const validPassword = await helpers.matchPassword(password, user.contrseña);
+            if(validPassword){
+                done(null, user, req.flash('success', 'Bienvenido ' + user.nombreUsuario));
+            } else {
+                done(null, false, req.flash('message', 'Contraseña incorrecta'));
+            }
+        } else {
+            return done(null, false, req.flash('message', 'El nombre de usuario no existe'));
+        }
+
     } else {
 
-        console.log(req.body);
         const { textNombres, textApellidos, textCorreo } = req.body;
 
         const newUser = {
