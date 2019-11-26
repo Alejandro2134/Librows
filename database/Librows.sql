@@ -118,8 +118,8 @@ CREATE TABLE `seguidor` (
 CREATE TABLE `usuario` (
   `idUsuario` int(200) NOT NULL,
   `nombreUsuario` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
-  `contraseña` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
-  `correo` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `contraseña` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `correo` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `nombre` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
   `apellido` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
