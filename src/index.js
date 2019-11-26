@@ -3,7 +3,11 @@ const morgan = require('morgan');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const passport = require('passport');
+const session = require('express-session');
 const flash = require('connect-flash');
+const MySQLStore = require('express-mysql-session');
+
+const { database } = require('./keys');
 
 //Inicialización de modulos
 const app = express();
@@ -22,10 +26,16 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 //Middlewares
+app.use(session({
+    secret: 'hellen',
+    resave: false,
+    saveUninitialized: false,
+    store: new MySQLStore(database)
+}));
+app.use(flash());
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 

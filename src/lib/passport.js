@@ -24,11 +24,11 @@ passport.use('local.auth', new LocalStrategy({
 
     if(num == 2){
         
-        const rows = await pool.query('SELECT * FROM usuario WHERE nombreUsuario = ?' [username]);
+        const rows = await pool.query('SELECT * FROM usuario WHERE nombreUsuario = ?', [textNombreUsuario]);
 
         if(rows.length > 0){
             const user = rows[0];
-            const validPassword = await helpers.matchPassword(password, user.contrseña);
+            const validPassword = await helpers.matchPassword(textContraseña, user.contraseña);
             if(validPassword){
                 done(null, user, req.flash('success', 'Bienvenido ' + user.nombreUsuario));
             } else {
@@ -43,14 +43,14 @@ passport.use('local.auth', new LocalStrategy({
         const { textNombres, textApellidos, textCorreo } = req.body;
 
         const newUser = {
-            textNombreUsuario,
-            textContraseña,
-            textNombres,
-            textApellidos,
-            textCorreo
+            nombreUsuario: textNombreUsuario,
+            contraseña: textContraseña,
+            nombre: textNombres,
+            apellido: textApellidos,
+            correo: textCorreo
         };
 
-        newUser.textContraseña = await helpers.encryptPassword(textContraseña);
+        newUser.contraseña = await helpers.encryptPassword(textContraseña);
         const result = await pool.query('INSERT INTO usuario SET ?', [newUser]);
         newUser.id = result.insertId;
         return done(null, newUser);
