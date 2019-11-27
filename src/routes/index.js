@@ -9,18 +9,12 @@ router.get('/', (req, res) => {
     res.render('home');
 })
 
-router.post('/', passport.authenticate('local.auth', {
-    successRedirect: '/perfil',
-    failureRedirect: '/',
-    failureFlash: true
-}))
-
-router.get('/perfil', (req, res) => {
-    res.send('HOLA :D');
-})
-
-router.get('/catalogo', (req, res) => {
-    res.render('catalogo');
+router.post('/', (req, res, next) => {
+    passport.authenticate('local.auth', {
+        successRedirect: '/perfil',
+        failureRedirect: '/',
+        failureFlash: true
+    })(req, res, next);
 })
 
 module.exports = router;

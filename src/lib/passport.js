@@ -22,6 +22,8 @@ passport.use('local.auth', new LocalStrategy({
         }
     }
 
+    console.log(num);
+
     if(num == 2){
         
         const rows = await pool.query('SELECT * FROM usuario WHERE nombreUsuario = ?', [textNombreUsuario]);
@@ -58,10 +60,10 @@ passport.use('local.auth', new LocalStrategy({
 }));
 
 passport.serializeUser((user, done) => {
-    done(null, user.id);
+    done(null, user.idUsuario);
 });
 
 passport.deserializeUser(async (id, done) => {
     const rows = await pool.query('SELECT * FROM usuario WHERE idUsuario = ?', [id]);
     done(null, rows[0]);
-})
+});

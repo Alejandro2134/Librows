@@ -1,0 +1,16 @@
+<div class="container p-4">
+    <h2>Libros con mejor calificación:</h2>
+    <br>
+    <div class="row">
+        {{#each bestBooks}}
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <img src="{{imagen}}" class="card-img-top" height="370" width="500">
+                    <div class="card-body">
+                       <a href="#" class="btn btn-primary">Ver libro</a>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
