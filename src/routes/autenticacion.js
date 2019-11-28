@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const passport = require('passport');
+const { isLoggedIn } = require('../lib/auth');
 
-router.get('/perfil', (req, res) => {
+router.get('/perfil', isLoggedIn , (req, res) => {
     res.render('perfil');
 });
 
