@@ -14,4 +14,21 @@ router.get('/libroCalificacion', async (req, res) => {
     res.render('catalogo/libroCalificacion', { bestBooks })
 });
 
+router.get('/:id', async (req, res) => {
+    const { id } = req.params;
+    const query = await pool.query('SELECT * FROM libro WHERE idLibro = ?', [id]);
+    const query2 = await pool.query('SELECT descripcion FROM comentario WHERE idLibroFK = ?', [id]);
+
+    Promise.all([
+        query[0],
+        query2[0]
+    ])
+    .then(([book, comments]) => {
+        res.render('libro', {
+            book,
+            comments
+        });
+    })
+});
+
 module.exports = router;
