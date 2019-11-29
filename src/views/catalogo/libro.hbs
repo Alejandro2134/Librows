@@ -1,0 +1,57 @@
+<br>
+<div class="container"> 
+     <div class="row d-flex h-100">
+        <div class="col-sm-4">
+            <img src="{{book.imagen}}" class="img-fluid d-none d-sm-block" height="300" width="300">
+            {{#if user}}
+                <br>
+                <a href="#" class="btn btn-info">Agregar a biblioteca</a>
+            {{/if}}
+        </div>
+
+        <div class="col-sm-8">
+            <br> <br> <br> 
+            <h1>Titulo: {{book.nombre}}</h1>
+            <br>
+            <h1>Autor: {{book.autor}}</h1>
+            <br>
+            <h1>Genero: {{book.genero}}</h1>
+            <br>
+            <h1>Puntaje:</h1>
+        </div>
+     </div>
+</div>
+
+<br>
+<div class="container">
+    <h2>Reseñas: </h2>
+    {{#if user}} 
+        <a href="{{book.idLibro}}/agregarResena" class="btn btn-info">Agregar reseña</a>
+    {{/if}} 
+    <br>
+    {{#if comments}}
+        {{#each comments}}
+            <br>
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        azapata
+                    </div>
+
+                    <div class="card-body">
+                        <p class="card-text">{{descripcion}}</p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    {{else}}
+        {{#if user}}
+            <br>
+            <h3>No hay reseñas, agrega una :D</h3>
+        {{else}}
+            <br>
+            <h3>No hay reseñas, registrate ahora para agregar una :D</h3>
+            <a href="/" class="btn btn-info">Registrarse</a>
+        {{/if}}
+    {{/if}}
+</div>
