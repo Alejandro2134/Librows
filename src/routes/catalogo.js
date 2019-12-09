@@ -32,11 +32,6 @@ router.get('/:id', async (req, res) => {
     });
 });
 
-router.get('/:id/comentarios', async (req, res) => {
-    const { id } = req.params;
-    const query2 = await pool.query('SELECT * FROM comentario WHERE idLibroFK = ?', [id]);
-})
-
 router.get('/:id/agregarResena', isLoggedIn, async (req, res) => {
     const { id } = req.params;
     const book = await pool.query('SELECT * FROM libro WHERE idLibro = ?', [id]);
@@ -55,7 +50,7 @@ router.post('/:id/agregarResena', isLoggedIn, async (req, res) => {
     };
 
     await pool.query('INSERT INTO comentario set ?', [newComment]);
-    res.redirect('catalogo/:' + id);
+    res.redirect('/catalogo/' + id);
 })
 
 module.exports = router;
